@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Chat app
+Desenvolvendo um aplicativo de chat com a implementação de metodologias DevOps.
 
-## Getting Started
+Interface de chat em tempo real onde vários usuários podem interagir entre si enviando mensagens.
 
-First, run the development server:
+## Definições do Projeto
+- Nome do Grupo: DevConnect
+- Tema do Grupo: Chat de Mensageria
+- Objetivo: Desenvolver uma aplicação de chat estilo Discord, WhatsApp e Telegram.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Definição de Ferramentas:
+- Frontend: React & Tailwind
+- Backend: Express.js & Socket.io
+- Linguagem: Typescript
+- Banco de Dados: SQL/NOSQL
+- Hospedagem: Docker
+- Planejamento e Gerenciamento: Jira
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Créditos
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+A ideia deste projeto foi reunida do repositório em [github.com/florinpop17/app-ideas/blob/master/Projects/3-Advanced/Chat-App.md.](https://github.com/florinpop17/app-ideas/blob/master/Projects/3-Advanced/Chat-App.md)
 
-## Learn More
+Como um MVP (Mínimo Produto Viável), você pode se concentrar na construção da interface de chat. A funcionalidade extras pode ser adicionada posteriormente.
 
-To learn more about Next.js, take a look at the following resources:
+## Critérios de Sucesso
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Essa aplicação será um sucesso se:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+-   [ ] O usuário é solicitado a inserir um nome de usuário quando visita o aplicativo de chat. O nome de usuário será armazenado na aplicação
+-   [ ] O usuário poder ver um `campo de entrada` onde pode digitar uma nova mensagem
+-   [ ] Ao pressionar a tecla `Enter` ou ao clicar no botão `enviar`, o texto for exibido na `caixa de chat` junto com seu nome de usuário (por exemplo, `John Doe: Olá Mundo!`)
+-   [ ] As mensagens serão visíveis para todos os usuários que estão no aplicativo de chat (usando WebSockets)
+-   [ ] Quando um novo usuário entra no chat, uma mensagem é exibida para todos os usuários existentes
+-   [ ] O usuário pode enviar imagens, vídeos e links que serão exibidos corretamente
+-   [ ] O usuário pode selecionar e enviar um emoji
 
-## Deploy on Vercel
+## Funcionalidades Extras
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-   [ ] As mensagens são salvas em um banco de dados
+-   [ ] Os usuários podem conversar em particular
+-   [ ] Os usuários podem ingressar em "canais" sobre tópicos específicos
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Integrantes
+
+- Henrique Diego Sabará Silva [@HenriqueSabara](https://github.com/HenriqueSabara)
+- Igor Limaverde do Nascimento [@igorin23](https://github.com/igor23)
+- Kauê Forlan Barros de Jesus Souza (Team Leader) [@Forlann](https://github.com/Forlann)
+
+## Bibliografia/Guides
+
+-   [Socket.io](https://socket.io)
+-   [Como construir um aplicativo de chat React.js em 10 minutos - artigo](https://medium.freecodecamp.org/how-to-build-a-react-js-chat-app-in-10-minutes-c9233794642b)
+-   [Construa um aplicativo de chat como o Slack - Tutorial React / JavaScript - Youtube](https://www.youtube.com/watch?v=a-JKj7m2LIo)
+-   [Aplicativo de Chat Socket.io Usando Websockets - Tutorial do Youtube](https://www.youtube.com/watch?v=tHbCkikFfDE)
+
+## Projetos de Exemplo
+
+-   [Chatty2](https://web-chatty.herokuapp.com/)
+-   [Aplicativo de chat simples baseado em soquetes TCP](https://github.com/dularish/Simple-TCP-Socket-based-Chat-App)
