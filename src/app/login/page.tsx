@@ -28,7 +28,11 @@ export function Log() {
 
   return (
     <div style={{ width: '280px' }}>
-      <Button variant="secondary" onClick={() => {router.push('/chat')}} style={{ width: '100%', borderRadius: '4px', border: 'none', padding: '10px' }}>Entrar</Button>
+      <Button 
+      variant="secondary" 
+      onClick={() => {router.push('/chat')}} 
+      style={{ width: '100%', borderRadius: '4px', border: 'none', padding: '10px' }}>
+      Entrar</Button>
     </div>
   );
 }

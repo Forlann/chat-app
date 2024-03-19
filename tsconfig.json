@@ -32,7 +32,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, ".next/types/app/page.tsx", ".next/types/app/layout.tsx", ".next/types/app/login/page.tsx", ".next/types/app/chat/page.tsx"  ],
   "exclude": [
     "node_modules"
   ]
