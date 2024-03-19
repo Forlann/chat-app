@@ -9,13 +9,14 @@ export default function Email_Senha() {
 
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-      <p style={{ marginBottom: '8px', textAlign: 'center' }}>Preencha os dados abaixo:</p>
+    <div className="bg-current" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+      <h1 className="text-white text-xl">Login</h1>
+      <p className="text-white" style={{ marginBottom: '8px', textAlign: 'center' }}>Preencha os dados abaixo:</p>
       <div style={{ marginBottom: '16px', width: '280px' }}>
         <Input type="email" placeholder="Email" style={{ width: '100%', borderRadius: '4px', border: '1px solid #ccc', padding: '8px' }} />
       </div>
       <div style={{ marginBottom: '16px', width: '280px' }}>
-        <Input type="senha" placeholder="Senha" style={{ width: '100%', borderRadius: '4px', border: '1px solid #ccc', padding: '8px' }} />
+        <Input type="password" placeholder="Senha" style={{ width: '100%', borderRadius: '4px', border: '1px solid #ccc', padding: '8px' }} />
       </div>
       <Log />
     </div>
