@@ -1,9 +1,13 @@
+'use client'
+
 import React from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import './globals.css'
+import { useRouter } from "next/navigation";
 
 export default function Email_Senha() {
+
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
       <p style={{ marginBottom: '8px', textAlign: 'center' }}>Preencha os dados abaixo:</p>
@@ -19,9 +23,12 @@ export default function Email_Senha() {
 }
 
 export function Log() {
+
+  const router = useRouter();
+
   return (
     <div style={{ width: '280px' }}>
-      <Button variant="secondary" style={{ width: '100%', borderRadius: '4px', border: 'none', padding: '10px' }}>Entrar</Button>
+      <Button variant="secondary" onClick={() => {router.push('/chat')}} style={{ width: '100%', borderRadius: '4px', border: 'none', padding: '10px' }}>Entrar</Button>
     </div>
   );
 }
