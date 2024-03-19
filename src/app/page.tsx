@@ -1,11 +1,51 @@
-import Image from "next/image";
+import Image from "next/image"
+import './globals.css'
 import { Button } from "@/components/ui/button"
+import { ChevronRightIcon } from "@radix-ui/react-icons"
+import { Input } from "@/components/ui/input"
+import {Avatar,AvatarFallback,AvatarImage,} from "@/components/ui/avatar"
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <p className="text-lg font-large">Hello World!</p>
-      <Button variant="outline">Button</Button>
+    
+    <main className="bg-current text-foreground min-h-screen w-full">
+      <div>
+        {/*Topo Mensagem*/}
+        <div>
+          {/*Perfil*/}
+          <div className="px-1 py-1 pb-2 flex w-full items-start space-x-2 space-y-3">
+            <Avatar  className="ml-2 mt-2">
+            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+            <p className="text-white text-lg font-large">Igor Limaverde</p>
+          </div>
+          {/**/}
+        </div>
+
+        {/*Corpo Mensagem*/}
+        <div className="h-screen flex flex-col w-full">
+          {/*Texto Recebido*/}
+          <div className="flex flex-col items-start">
+            <span className="bg-gray-500 text-white px-2 py-4 ml-2 mt-2 mb-2 rounded-b-xl rounded-tl-xl"> 
+              How Can I Help?
+            </span>
+          </div>
+
+          {/*Texto Enviado*/}
+          <div className="flex flex-col items-end">
+            <span className="bg-blue-500 px-2 py-4 mr-2 mt-2 mb-2 rounded-b-xl rounded-tr-xl">
+              Good Place for Coffee.
+            </span>
+          </div>
+        </div>
+
+        {/*Input Mensagem*/}
+        <div className="border-t-2 px-1 py-2 flex items-center space-x-2">
+          <Input  className="text-white" type="" placeholder="Type Message..." />
+          <Button variant="outline" size="icon"><ChevronRightIcon className="h-4 w-4" /></Button>
+        </div>
+      </div>
     </main>
   );
 }
