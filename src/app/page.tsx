@@ -1,7 +1,8 @@
 import Image from "next/image"
 import './globals.css'
 import { Button } from "@/components/ui/button"
-import { ChevronRightIcon } from "@radix-ui/react-icons"
+import { Icons } from "@/components/icons"
+// import { ChevronRightIcon } from "@radix-ui/react-icons"
 import { Input } from "@/components/ui/input"
 import {Avatar,AvatarFallback,AvatarImage,} from "@/components/ui/avatar"
 
@@ -13,7 +14,7 @@ export default function Home() {
         {/*Topo Mensagem*/}
         <div>
           {/*Perfil*/}
-          <div className="px-1 py-1 pb-2 flex w-full items-start space-x-2 space-y-3">
+          <div className="border-b-2 px-1 py-1 pb-2 flex w-full items-start space-x-2 space-y-3">
             <Avatar  className="ml-2 mt-2">
             <AvatarImage src="https://github.com/shadcn.png" />
             <AvatarFallback>CN</AvatarFallback>
@@ -24,7 +25,7 @@ export default function Home() {
         </div>
 
         {/*Corpo Mensagem*/}
-        <div className="h-screen flex flex-col w-full">
+        <div className="flex flex-col w-full">
           {/*Texto Recebido*/}
           <div className="flex flex-col items-start">
             <span className="bg-gray-500 text-white px-2 py-4 ml-2 mt-2 mb-2 rounded-b-xl rounded-tl-xl"> 
@@ -38,13 +39,13 @@ export default function Home() {
               Good Place for Coffee.
             </span>
           </div>
+          {/*Input Mensagem*/}
+          <div className="border-t-2 px-1 py-2 flex items-center space-x-2 absolute bottom-0 w-full">
+            <Input  className="text-white" type="" placeholder="Type Message..." />
+            <Button variant="outline" size="icon"><Icons.arrow_rigt/></Button>
+          </div>
         </div>
 
-        {/*Input Mensagem*/}
-        <div className="border-t-2 px-1 py-2 flex items-center space-x-2">
-          <Input  className="text-white" type="" placeholder="Type Message..." />
-          <Button variant="outline" size="icon"><ChevronRightIcon className="h-4 w-4" /></Button>
-        </div>
       </div>
     </main>
   );
