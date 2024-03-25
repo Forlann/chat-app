@@ -1,8 +1,6 @@
 'use client'
 
-import Image from "next/image";
 import { Button } from "@/components/ui/button"
-import Link from "next/link";
 import { useRouter } from 'next/navigation'
 
 export default function Home() {
@@ -11,9 +9,11 @@ export default function Home() {
 
   return (
     <main className="bg-current flex min-h-screen flex-col items-center justify-between p-24 color:">
-      <p className="text-lg font-large text-white">Main Page</p>
-      <Button variant="outline" onClick={() => router.push('./login')}>Página de Login</Button>
-      <Button variant="outline" onClick={() => router.push('./chat')}>Página de Chat</Button>
+      <h1 className="text-3xl font-bold leading-tight md:text-6xl text-white">Main Page</h1>
+      <div className="flex gap-5">
+        <Button variant="outline" onClick={() => router.push('./login')}>Página de Login</Button>
+        <Button variant="outline" onClick={() => router.push('./chat')}>Página de Chat</Button>
+      </div>
     </main>
   );
 }
