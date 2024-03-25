@@ -29,12 +29,3 @@ export default function Email_Senha() {
     </div>
   );
 }
-
-export function Log() {
-
-  
-
-  return (
-  
-  );
-}
