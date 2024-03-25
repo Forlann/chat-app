@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 export default function Email_Senha() {
 
+  const router = useRouter();
 
   return (
     <div className="bg-current" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
@@ -18,22 +19,22 @@ export default function Email_Senha() {
       <div style={{ marginBottom: '16px', width: '280px' }}>
         <Input type="password" placeholder="Senha" style={{ width: '100%', borderRadius: '4px', border: '1px solid #ccc', padding: '8px' }} />
       </div>
-      <Log />
-    </div>
-  );
-}
-
-export function Log() {
-
-  const router = useRouter();
-
-  return (
-    <div style={{ width: '280px' }}>
+      <div style={{ width: '280px' }}>
       <Button 
       variant="secondary" 
       onClick={() => {router.push('/chat')}} 
       style={{ width: '100%', borderRadius: '4px', border: 'none', padding: '10px' }}>
       Entrar</Button>
     </div>
+    </div>
+  );
+}
+
+export function Log() {
+
+  
+
+  return (
+  
   );
 }
