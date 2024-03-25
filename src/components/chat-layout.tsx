@@ -1,9 +1,9 @@
+"use client"
+
 import { Avatar, AvatarImage } from "./ui/avatar";
-import { Button } from "./ui/button";
-import { Icons } from "@/components/icons"
-import ChatCard from "@/components/chat-card"
 import MessageList from "./message-list";
 import Bottombar from "./bottombar";
+import { useState } from "react";
 
 interface Props {
     username: string,
@@ -11,8 +11,14 @@ interface Props {
     email: string,
 }
 
-
 const ChatLayout: React.FC<Props> = ({username, avatarImg, email}) => {
+
+    const [messages, setMessages] = useState<{ content: string; myMessage: boolean }[]>([]);
+
+    const sendMessage = (message: string) => {
+      setMessages([...messages, { content: message, myMessage: true }]);
+    };
+
     return (
         <div className="w-full relative">
             <div id="header">
@@ -28,11 +34,11 @@ const ChatLayout: React.FC<Props> = ({username, avatarImg, email}) => {
             </div>
 
             <div id="box">
-                <MessageList content=""></MessageList>
+                <MessageList messages={messages}></MessageList>
             </div>
 
             <div>
-                <Bottombar content=""/>
+                <Bottombar onSendMessage={sendMessage}/>
             </div>
         </div>
     )

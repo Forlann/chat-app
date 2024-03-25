@@ -1,26 +1,19 @@
 import {Avatar, AvatarImage,} from "@/components/ui/avatar"
 
-interface messageProps {
+interface MessageProps {
     content: string,
+    myMessage: boolean,
 }
 
-
-const Message: React.FC<messageProps> = ({content}) => {
+const Message: React.FC<MessageProps> = ({ content, myMessage }) => {
+    const messageClass = myMessage ? "enviado" : "recebido";
     return (
-        <div>
-            <div className="recebido flex flex-col items-start">
-                <span className="bg-gray-500 text-white px-2 py-4 ml-2 mt-2 mb-2 rounded-b-xl rounded-tl-xl"> 
-                    {content}
-                </span>
-            </div>
-
-            <div className="enviado flex flex-col items-end">
-                <span className="bg-blue-500 px-2 py-4 mr-2 mt-2 mb-2 rounded-b-xl rounded-tr-xl">
-                    Tudo bem, e você?
-                </span>
-            </div>
-        </div>
-    )
-}
+      <div className={`${messageClass} flex flex-col items-${myMessage ? "end" : "start"}`}>
+        <span className={`bg-${myMessage ? "blue" : "gray"}-500 text-white px-2 py-4 ${myMessage ? "mr" : "ml"}-2 mt-2 mb-2 rounded-b-xl ${myMessage ? "rounded-tr-xl" : "rounded-tl-xl"}`}>
+          {content}
+        </span>
+      </div>
+    );
+  };
 
 export default Message
