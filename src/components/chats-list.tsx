@@ -13,7 +13,7 @@ interface Props {
 
 const ChatList: React.FC<Props> = ({ cardList }) => {
     return (
-        <div className="flex flex-col text-white w-1/5 border-r-2 border-cyan-50">
+        <div className="z-20 box-border text-white w-1/5 border-r-2 border-cyan-50">
             {cardList.map((card, index) => (
                 <ChatCard 
                     key={index} 

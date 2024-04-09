@@ -21,7 +21,7 @@ const Bottombar: React.FC<bottombarPros> = ({onSendMessage}) => {
     }
 
     return (
-        <div className="border-t-2 px-1 py-2 flex items-center space-x-2 absolute bottom-0 w-full">
+        <div className="absolute border-t-2 p-2 bg-current flex items-center space-x-2 bottom-0 w-full">
             <Input  
                 className="" 
                 type="text" 

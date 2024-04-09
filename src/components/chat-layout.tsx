@@ -19,9 +19,9 @@ const ChatLayout: React.FC<Props> = ({username, avatarImg, email}) => {
       setMessages([...messages, { content: message, myMessage: true }]);
     };
 
-    return (
-        <div className="w-full relative">
-            <div id="header">
+    return (    
+        <div className="relative w-full">
+            <div className="static bg-current" id="header">
                 <div className=" border-b-2 p-2 flex gap-3 items-center">
                     <Avatar  className="ml-3">
                         <AvatarImage src={avatarImg} />
@@ -32,14 +32,13 @@ const ChatLayout: React.FC<Props> = ({username, avatarImg, email}) => {
                     </div>
                 </div>
             </div>
-
-            <div id="box">
-                <MessageList messages={messages}></MessageList>
-            </div>
-
-            <div>
+                <div className="absolute flex box-border h-5/6 w-full z-0 border-1 overflow-y-scroll" id="box">
+                    <MessageList messages={messages}></MessageList>
+                </div>
+            <div className="z-30">
                 <Bottombar onSendMessage={sendMessage}/>
             </div>
+
         </div>
     )
 }
