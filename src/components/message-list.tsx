@@ -6,7 +6,7 @@ interface messageListProps {
 
 const MessageList: React.FC<messageListProps> = ({messages}) => {
     return (
-        <div>
+        <div className="w-full">
         {messages.map((message, index) => (
           <Message key={index} content={message.content} myMessage={message.myMessage} />
         ))}
