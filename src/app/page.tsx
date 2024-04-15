@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { useRouter } from 'next/navigation'
+import socket from '../server/socketConfig';
 
 export default function Home() {
 

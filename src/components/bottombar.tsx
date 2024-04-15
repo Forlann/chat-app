@@ -4,9 +4,10 @@ import { useState } from "react"
 import { Icons } from "./icons"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
+import socket from '../server/socketConfig';
 
 interface bottombarPros {
-    onSendMessage: (message: string) => void;
+    onSendMessage: (message: string, myMessage?: boolean) => void;
 }
 
 const Bottombar: React.FC<bottombarPros> = ({onSendMessage}) => {
@@ -15,7 +16,14 @@ const Bottombar: React.FC<bottombarPros> = ({onSendMessage}) => {
 
     const handleSubmit = () => {
         if (barValue.trim() !== "") {
-            onSendMessage(barValue)
+
+            const messageObjetc = {
+                content: barValue,
+                myMessage: true,
+            }
+
+            onSendMessage(barValue, true)
+            socket.emit('chat message', messageObjetc);
             setBarValue("")
         }
     }

@@ -3,7 +3,8 @@
 import { Avatar, AvatarImage } from "./ui/avatar";
 import MessageList from "./message-list";
 import Bottombar from "./bottombar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import socket from "@/server/socketConfig";
 
 interface Props {
     username: string,
@@ -15,9 +16,19 @@ const ChatLayout: React.FC<Props> = ({username, avatarImg, email}) => {
 
     const [messages, setMessages] = useState<{ content: string; myMessage: boolean }[]>([]);
 
-    const sendMessage = (message: string) => {
-      setMessages([...messages, { content: message, myMessage: true }]);
+    const sendMessage = (message: string, myMessage?: boolean) => {
+        const messageType = myMessage ? myMessage : true; // Se não for enviado nenhum parametro myMassege é true por padrão
+        setMessages([...messages, { content: message,  myMessage: messageType }]);
     };
+
+    useEffect(() => {
+        socket.on('chat message', (messageObject) => {
+            console.log('Mensagem recebida do servidor:', messageObject);
+
+            setMessages([...messages, { content: messageObject.content, myMessage: false}]) // Adiciona a mensagem ao estado de mensagens
+        });
+    })
+        
 
     return (    
         <div className="relative w-full">
