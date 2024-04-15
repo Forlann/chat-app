@@ -58,3 +58,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* My custom CSS */
+
+.received {
+  background-color: rgb(107 114 128);
+  align-items: flex-start;
+  margin-left: 8px;
+}
+
+.sended{
+  background-color: rgb(59 130 246);
+  align-items: flex-end;
+  margin-left: auto;
+}
