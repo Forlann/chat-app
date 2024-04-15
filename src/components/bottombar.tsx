@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Icons } from "./icons"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
+import socket from '../server/socketConfig';
 
 interface bottombarPros {
     onSendMessage: (message: string) => void;
@@ -16,6 +17,7 @@ const Bottombar: React.FC<bottombarPros> = ({onSendMessage}) => {
     const handleSubmit = () => {
         if (barValue.trim() !== "") {
             onSendMessage(barValue)
+            socket.emit('chat message', barValue);
             setBarValue("")
         }
     }
