@@ -43,7 +43,7 @@ Essa aplicação será um sucesso se:
 
 
 ## Integrantes
-
+- [SCRUM do Projeto](https://techlaby.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog)
 - Henrique Diego Sabará Silva [@HenriqueSabara](https://github.com/HenriqueSabara)
 - Igor Limaverde do Nascimento [@igorin23](https://github.com/igor23)
 - Kauê Forlan Barros de Jesus Souza (Team Leader) [@Forlann](https://github.com/Forlann)
