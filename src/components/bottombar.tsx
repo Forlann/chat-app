@@ -5,7 +5,7 @@ import { Icons } from "./icons"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import socket from '../server/socketConfig';
-
+import { useChatRoom } from "@/context/ChatRoomContext"
 interface bottombarPros {
     onSendMessage: (message: string, myMessage?: boolean) => void;
 }
@@ -13,6 +13,8 @@ interface bottombarPros {
 const Bottombar: React.FC<bottombarPros> = ({onSendMessage}) => {
 
     const [barValue, setBarValue] = useState<string>("")
+    
+    const { room } = useChatRoom();
 
     const handleSubmit = () => {
         if (barValue.trim() !== "") {
@@ -23,7 +25,7 @@ const Bottombar: React.FC<bottombarPros> = ({onSendMessage}) => {
             }
 
             onSendMessage(barValue, true)
-            socket.emit('chat message', messageObjetc);
+            socket.emit('chat message', messageObjetc, room);
             setBarValue("")
         }
     }

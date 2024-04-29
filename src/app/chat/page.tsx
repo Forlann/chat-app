@@ -1,5 +1,6 @@
 import ChatLayout from "@/components/chat-layout"
 import ChatList from "@/components/chats-list";
+import { ChatRoomProvider } from "@/context/ChatRoomContext";
 
 export default function Home() {
 
@@ -22,10 +23,11 @@ export default function Home() {
   ]
 
   return (
-    
-    <main className="flex bg-current text-foreground min-h-screen">
-      <ChatList cardList={chatList}/>
-      <ChatLayout username="Kauê Forlan" email="jkaueforlan@gmail.com" avatarImg="https://github.com/Forlann.png"/>
-    </main>
+    <ChatRoomProvider>
+      <main className="flex bg-current text-foreground min-h-screen">
+        <ChatList cardList={chatList}/>
+        <ChatLayout username="Kauê Forlan" email="jkaueforlan@gmail.com" avatarImg="https://github.com/Forlann.png"/>
+      </main>
+    </ChatRoomProvider>
   );
 }

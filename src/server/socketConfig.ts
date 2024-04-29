@@ -5,6 +5,6 @@ const socket = io('http://localhost:8080', {
     extraHeaders: {
         'Access-Control-Allow-Origin': 'http://localhost:8080' // Permitir todas as origens, ajuste conforme necessário
     }
-}); // Conectar ao servidor Socket.IO
+});
 
 export default socket;

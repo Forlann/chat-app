@@ -46,7 +46,7 @@ const ChatLayout: React.FC<Props> = ({username, avatarImg, email}) => {
             <div className="absolute flex box-border h-5/6 w-full z-0 border-1 overflow-y-scroll" id="box">
                 <MessageList messages={messages}></MessageList>
             </div>
-            <div className="z-30">
+            <div className=" flex z-30">
                 <Bottombar onSendMessage={sendMessage}/>
             </div>
 
