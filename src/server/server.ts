@@ -35,18 +35,30 @@ io.on("connection", (socket: Socket) => {
     users[socket.id] = username;
   });
 
-  socket.on("chat message", (messageObject: { content: string }) => {
+  socket.on("chat message", (messageObject: { content: string }, room) => {
+
     // Envia a mensagem de volta apenas para o destinatário correto
     const senderUsername = users[socket.id];
     console.log(`Mensagem recebida: ${senderUsername}`, messageObject);
 
-    if (senderUsername) {
+    if (room === ''){
       socket.broadcast.emit("chat message", {
         content: messageObject.content,
         sender: senderUsername,
       });
+    } else {
+      socket.to(room).emit("chat message", {
+        content: messageObject.content,
+        sender: senderUsername,
+      },);
     }
   });
+
+  socket.on("join-room", (room:string) => {
+    socket.join(room)
+    console.log(`Usuário ${socket.id} entrou na sala ${room}`)
+  });
+
 });
 
 server.listen(port, () => {
