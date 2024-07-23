@@ -52,3 +52,49 @@ io.on("connection", (socket: Socket) => {
 server.listen(port, () => {
   console.log(`Servidor Socket.IO rodando na porta ${port}`);
 });
+
+// Configuração do banco de dados
+import mysql from 'mysql2';
+
+const db = mysql.createConnection({
+  host: 'ch26k2e882sp.sa-east-1.rds.amazonaws.com',
+  user: 'admin',
+  password: 'D44afoO3wlgKZvNoF490',
+  database: 'serverchatrds',
+});
+
+db.connect(err => {
+  if (err) {
+    console.error('Error connecting to the database:', err);
+    return;
+  }
+  console.log('Connected to the database');
+});
+
+// Endpoint para criar usuário na tabela de Usuários
+app.post('/database/create-user', (req, res) => {
+  const { username, email, password } = req.body;
+
+  const query = 'INSERT INTO Usuarios (username, email, password) VALUES (?, ?, ?)';
+  db.query(query, [username, email, password], (err, results) => {
+    if (err) {
+      console.error('Error inserting data:', err);
+      return res.status(500).send('Error inserting data');
+    }
+    res.status(200).send('Data inserted successfully');
+  });
+});
+
+
+app.post('/database/send-message', (req, res) => {
+  const { user_sender_id, user_receiver_id, message } = req.body;
+
+  const query = 'INSERT INTO Historico_de_Conversa (user_sender_id, user_receiver_id, message) VALUES (?, ?, ?)';
+  db.query(query, [user_sender_id, user_receiver_id, message], (err, result) => {
+    if (err) {
+      console.error('Error inserting data:', err);
+      return res.status(500).send('Error inserting data');
+    }
+    res.status(200).send('Data inserted successfully');
+  });
+});
